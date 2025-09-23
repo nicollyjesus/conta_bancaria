@@ -1,6 +1,8 @@
 package conta_bancaria;
 
 import java.util.Scanner;
+
+import conta_bancaria.model.Conta;
 import conta_bancaria.util.Cores;
 
 public class Menu {
@@ -11,12 +13,22 @@ public class Menu {
 		
 		int opcao;
 
+		// Instanciar Objetos da Classe Conta
+		
+		Conta c1 = new Conta(1, 123, 1, "Nicolly Jesus", 500000.00f);
+		
+		System.out.println("O Saldo da conta é: " + c1.getSaldo());
+		
+		c1.setSaldo(600000.00f);
+		
+		System.out.println("O Saldo atualizado da conta é: " + c1.getSaldo());
+		
 		while (true) {
 			
 			System.out.println(Cores.TEXT_WHITE_BRIGHT + Cores.ANSI_PURPLE_BACKGROUND_BRIGHT +"**************	");
 			System.out.println("**********************************************");
 			System.out.println("                                              ");
-			System.out.println("              BANCO DO BABADO FORTE           ");
+			System.out.println("               BANCO BABADO FORTE             ");
 			System.out.println("                                              ");
 			System.out.println("**********************************************");
 			System.out.println("                                              ");
@@ -38,7 +50,7 @@ public class Menu {
 			opcao = scanner.nextInt();
 			
 			if (opcao == 0) {
-				System.out.println("\nBanco Cores - Dando cor para as suas finanças sempre!");
+				System.out.println("\nBanco Babado Forte - Barbarizando as suas finanças sempre!");
 				sobre();
 				scanner.close();
 				System.exit(0);
