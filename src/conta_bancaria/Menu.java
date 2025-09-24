@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import conta_bancaria.model.Conta;
 import conta_bancaria.util.Cores;
+import conta_correnteModel.ContaCorrente;
 
 public class Menu {
 
@@ -20,6 +21,16 @@ public class Menu {
 		System.out.println("O Saldo da conta é: " + c1.getSaldo());
 		
 		c1.setSaldo(600000.00f);
+		
+		ContaCorrente cc1 = new ContaCorrente(3, 456, 1, "Thuany Silva", 100000000.00f, 10000000f ); 
+		cc1.visualizar();
+		System.out.println("saque 1: " + cc1.sacar(200000000.00f));
+		cc1.visualizar();
+		System.out.println("saque 2: " +cc1.sacar(2000.00f));
+		cc1.visualizar();
+		
+		cc1.depositar(5000.00f);
+		cc1.visualizar();
 		
 		System.out.println("O Saldo atualizado da conta é: " + c1.getSaldo());
 		

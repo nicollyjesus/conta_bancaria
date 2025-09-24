@@ -62,6 +62,16 @@ public class Conta {
 	public void setSaldo(float saldo) {
 		this.saldo = saldo;
 	}
+
+	public void visualizar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean sacar(float valor) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 	
 }
