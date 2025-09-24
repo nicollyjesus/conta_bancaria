@@ -1,6 +1,4 @@
-package conta_correnteModel;
-
-import conta_bancaria.model.Conta;
+package conta_bancaria.model;
 
 public class ContaCorrente extends Conta{
 	
