@@ -2,76 +2,83 @@ package conta_bancaria.model;
 
 public class Conta {
 
-	// Atributos da Classe
-	
-	private int numero;
-	private int agencia;
-	private int tipo;
-	private String titular;
-	private float saldo;
-	
-	// Método Construtor 
-	
-	public Conta(int numero, int agencia, int tipo, String titular, float saldo) {
-		this.numero = numero;
-		this.agencia = agencia;
-		this.tipo = tipo;
-		this.titular = titular;
-		this.saldo = saldo;
-		
-	}
-	
-	// Método Get e Set
+    private int numero;
+    private int agencia;
+    private int tipo; // 1 - Corrente | 2 - Poupança
+    private String titular;
+    private float saldo;
 
-	public int getNumero() {
-		return numero;
-	}
+    public Conta(int numero, int agencia, int tipo, String titular, float saldo) {
+        this.numero = numero;
+        this.agencia = agencia;
+        this.tipo = tipo;
+        this.titular = titular;
+        this.saldo = saldo;
+    }
 
-	public void setNumero(int numero) {
-		this.numero = numero;
-	}
+    public int getNumero() {
+        return numero;
+    }
 
-	public int getAgencia() {
-		return agencia;
-	}
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
 
-	public void setAgencia(int agencia) {
-		this.agencia = agencia;
-	}
+    public int getAgencia() {
+        return agencia;
+    }
 
-	public int getTipo() {
-		return tipo;
-	}
+    public void setAgencia(int agencia) {
+        this.agencia = agencia;
+    }
 
-	public void setTipo(int tipo) {
-		this.tipo = tipo;
-	}
+    public int getTipo() {
+        return tipo;
+    }
 
-	public String getTitular() {
-		return titular;
-	}
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
+    }
 
-	public void setTitular(String titular) {
-		this.titular = titular;
-	}
+    public String getTitular() {
+        return titular;
+    }
 
-	public float getSaldo() {
-		return saldo;
-	}
+    public void setTitular(String titular) {
+        this.titular = titular;
+    }
 
-	public void setSaldo(float saldo) {
-		this.saldo = saldo;
-	}
+    public float getSaldo() {
+        return saldo;
+    }
 
-	public void visualizar() {
-		// TODO Auto-generated method stub
-		
-	}
+    public void setSaldo(float saldo) {
+        this.saldo = saldo;
+    }
 
-	public boolean sacar(float valor) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	
-	
+    public boolean sacar(float valor) {
+        if (this.getSaldo() < valor) {
+            System.out.println("\nSaldo Insuficiente!");
+            return false;
+        }
+        this.setSaldo(this.getSaldo() - valor);
+        return true;
+    }
+
+    public void depositar(float valor) {
+        this.setSaldo(this.getSaldo() + valor);
+    }
+
+    public void visualizar() {
+        String tipoConta = (this.tipo == 1) ? "Conta Corrente" : "Conta Poupança";
+
+        System.out.println("\n***********************");
+        System.out.println("Dados da Conta");
+        System.out.println("***********************");
+        System.out.println("Número da Conta: " + this.numero);
+        System.out.println("Agência: " + this.agencia);
+        System.out.println("Tipo: " + tipoConta);
+        System.out.println("Titular: " + this.titular);
+        System.out.printf("Saldo: R$ %.2f\n", this.saldo);
+    }
 }
